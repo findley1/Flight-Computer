@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rocket Telemetry</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>🚀 Rocket Telemetry</h1>
+
+    <div id="alt"></div>
+    <div id="pos"></div>
+    <div id="vel"></div>
+    <div id="acc"></div>
+
+    <script>
+        var socket = io();
+
+        socket.on("telemetry", function(data) {
+            document.getElementById("alt").innerHTML =
+                "Altitude: " + data.alt.toFixed(2);
+
+            document.getElementById("pos").innerHTML =
+                "Position: " + data.pos;
+
+            document.getElementById("vel").innerHTML =
+                "Velocity: " + data.vel;
+
+            document.getElementById("acc").innerHTML =
+                "Acceleration: " + data.acc;
+        });
+    </script>
+</body>
+</html>
