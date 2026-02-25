@@ -6,7 +6,6 @@ import threading
 from rocket_state import RocketState
 from simulator import generate_state
 
-eventlet.monkey_patch()
 
 app = Flask(__name__)
 socketio = SocketIO(app)
